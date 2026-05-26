@@ -1,0 +1,15 @@
+async function test() {
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: "admin@learnnext.com", password: "Admin@123" })
+    });
+    const data = await res.text();
+    console.log("Status:", res.status);
+    console.log("Body:", data);
+  } catch (err) {
+    console.error("Error:", err.message);
+  }
+}
+test();
